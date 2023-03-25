@@ -6,13 +6,10 @@ mod tests {
 
     #[test]
     fn compress_and_decompress_works() {
-        // let input = include_str!("../random.txt").as_bytes();
-
-        let input = b"hello world!";
-        let compressed = compress(input, input.len());
-        let decompressed = decompress(&compressed, input.len());
-        println!("{:?}", decompressed);
-        assert_eq!(decompressed, input);
+        let input = include_str!("../random.txt").as_bytes();
+        let compressed_output = compress(input);
+        let decompressed_output = decompress(compressed_output, input.len());
+        assert_eq!(input, &decompressed_output[..]);
     }
 
     // #[test]
